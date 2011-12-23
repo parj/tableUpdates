@@ -5,6 +5,61 @@
     <script src="/jquery.tmpl.1.1.1.js" type="text/javascript"></script>
     <!--script src="/socket.io/socket.io.js"></script-->
     <!--script src="/main.js"></script-->
+    
+	 <!-- Setup and static -->
+    <script type="text/javascript" >
+    	var varSelectedCurrency = "GBP";
+    	var LINK_COUNTRIES = "images/flags/";
+    	var templateLinks = '<img src="' + LINK_COUNTRIES + '#{image}" onclick="setCurrency(\'#{ISO}\')"> #{ISO}</img> ';
+    	
+    	var currencies = {
+		    "GBP" : {"ISO" : "GBP", "image": "gb.png", "pillars": {
+		    	"O/N" : "0.995", 
+		    	"1M" : "1.0",
+		    	"2M" : "1.2",
+		    	"3M" : "1.4"
+		    }},
+		    "INR" : {"ISO" : "INR", "image": "in.png", "pillars" : {	
+		    	"O/N" : "0.993",
+		    	"S/N" : "0.997",
+		    	"T/N" : "0.999", 
+		    	"1M" : "1.0",
+		    	"2M" : "1.2",
+		    	"3M" : "1.4"
+		    }}
+		};
+		
+		function buildLinks() {
+			var links = "";
+			$.each(currencies, function() {
+				links += $.tmpl(templateLinks, this);
+			});
+		   
+		   buildSelectedFlag();
+		   $('#listOfLinks').html(links);
+		}		
+		
+		function buildTable() {
+			$('#divCurrency').html("Loading... Please Wait..");
+			var table = '<table border="1" id="tblCurrency">';
+			$.each(currencies[varSelectedCurrency].pillars, function(key, value) {
+			   table += '<tr><td>' + key + '</td>' + '<td>' + value + '</td>' + '</tr>';
+			});
+			table += '</table>';
+			$('#divCurrency').html(table);
+			buildSelectedFlag();(
+		}
+		
+		function buildSelectedFlag() {
+			document.getElementById('imgFlag').src = LINK_COUNTRIES + currencies[varSelectedCurrency].image;
+		}
+		 
+		function setCurrency(strCurrency) {
+		 	varSelectedCurrency = strCurrency;
+			buildTable();
+		}
+	 </script>
+</script>
 
     
   </head>
@@ -13,31 +68,12 @@
     <h2>Status: <span id="status">Waiting</span></h2>
     <pre id="message"></pre>
     <div id="listOfLinks">Loading... Please Wait..</div>
-
+    <hr />
+	 <img src="" alt="flag" id="imgFlag"></img>
+	 <div id="divCurrency"></div>
     <script type="text/javascript">
-	/*var templates = {
-		tr : '<tr>#{row}</tr>',
-		th : '<th>#{header}</th>,
-		td : '<td>#{cell}</td>'
-	};
-	
-	var table = '<table><thead><tr>';*/
-	var data = [
-		{link : "http://1.com"},
-		{link : "http://2.com"}];
-
-	var templates = {
-		a : '<a href="#{link}">#{link}</a> '
-	};
-
-
-
-	var links = "";
-	$.each(data, function() {
-		links += $.tmpl(templates.a, this);
-	});
-
-	$('#listOfLinks').html(links);
+		buildLinks();
+		buildTable();
     </script>
   </body>
 </body>
