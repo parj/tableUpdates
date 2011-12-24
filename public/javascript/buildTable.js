@@ -4,23 +4,6 @@ var templateLinks = '<img src="' + LINK_COUNTRIES + '#{image}" onclick="setCurre
 var templateImageCurrency = '<img src="' + LINK_COUNTRIES + '#{image}")"></img> ';
 var currencies;
 
-/*var currencies = {
-	"GBP" : {"ISO" : "GBP", "image": "gb.png", "pillars": {
-		"O/N" : "0.995", 
-		"1M" : "1.0",
-		"2M" : "1.2",
-		"3M" : "1.4"
-		}},
-	"INR" : {"ISO" : "INR", "image": "in.png", "pillars" : {
-	"O/N" : "0.993",
-	"S/N" : "0.997",
-	"T/N" : "0.999", 
-	"1M" : "1.0",
-	"2M" : "1.2",
-	"3M" : "1.4"
-	}}
-};*/
-
 function setData(data) {
 	currencies = data;
 }

@@ -26,7 +26,6 @@ app.configure('production', function(){
 });
 
 // Routes
-
 app.get('/', routes.index);
 
 var socket = io.listen(app);
@@ -80,20 +79,5 @@ socket.sockets.on('connection', function(client){
 	};
   
   client.emit('initialData', {rates : currencies}); 
-
-  /*var tick = function(){
-    if (!connected) {
-      return;
-    }
-
-    var dateTime = new Date();
-    var msg = dateTime.getHours() + ":" + dateTime.getMinutes() + ":" + dateTime.getSeconds();
-
-    console.log("Sending " + dateTime);
-    client.send(msg);
-    setTimeout(tick, 1000);
-  };
-  
-  tick();*/
 });
 
