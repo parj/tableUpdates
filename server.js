@@ -50,7 +50,7 @@ socket.sockets.on('connection', function(client){
 		"2M" : "1.2",
 		"3M" : "1.4"
 		}},
-	"INR" : {"ISO" : "INR", "currency" : "र", "image": "in.png", "pillars" : {
+	"INR" : {"ISO" : "INR", "currency" : "&#x20b9;", "image": "in.png", "pillars" : {
 		"O/N" : "0.993",
 		"S/N" : "0.997",
 		"T/N" : "0.999", 
@@ -58,7 +58,7 @@ socket.sockets.on('connection', function(client){
 		"2M" : "1.2",
 		"3M" : "1.4"
 		}},
-	"CHF" : {"ISO" : "CHF", "currency" : "F", "image": "ch.png", "pillars" : {
+	"CHF" : {"ISO" : "CHF", "currency" : "₣", "image": "ch.png", "pillars" : {
 		"O/N" : "0.999",
 		"S/N" : "1.002",
 		"T/N" : "1.010", 
