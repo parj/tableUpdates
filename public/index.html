@@ -10,7 +10,7 @@
     <script type="text/javascript" >
     	var varSelectedCurrency = "GBP";
     	var LINK_COUNTRIES = "images/flags/";
-    	var templateLinks = '<img src="' + LINK_COUNTRIES + '#{image}" onclick="setCurrency(\'#{ISO}\')"> #{ISO}</img> ';
+    	var templateLinks = '<img src="' + LINK_COUNTRIES + '#{image}" onclick="setCurrency(\'#{ISO}\')"> | </img> ';
     	
     	var currencies = {
 		    "GBP" : {"ISO" : "GBP", "image": "gb.png", "pillars": {
@@ -29,6 +29,10 @@
 		    }}
 		};
 		
+		function buildSelectedFlag() {
+			document.getElementById('imgFlag').src = LINK_COUNTRIES + currencies[varSelectedCurrency].image;
+		}
+		
 		function buildLinks() {
 			var links = "";
 			$.each(currencies, function() {
@@ -41,19 +45,20 @@
 		
 		function buildTable() {
 			$('#divCurrency').html("Loading... Please Wait..");
+
 			var table = '<table border="1" id="tblCurrency">';
+			table += '<tr><th>' + document.getElementById('imgFlag').outerHTML + '</th><th>Rate</th></tr>';
+			
 			$.each(currencies[varSelectedCurrency].pillars, function(key, value) {
 			   table += '<tr><td>' + key + '</td>' + '<td>' + value + '</td>' + '</tr>';
 			});
+			
 			table += '</table>';
+
 			$('#divCurrency').html(table);
-			buildSelectedFlag();(
+			buildSelectedFlag();
 		}
 		
-		function buildSelectedFlag() {
-			document.getElementById('imgFlag').src = LINK_COUNTRIES + currencies[varSelectedCurrency].image;
-		}
-		 
 		function setCurrency(strCurrency) {
 		 	varSelectedCurrency = strCurrency;
 			buildTable();
