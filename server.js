@@ -28,21 +28,60 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
+
+var socket = io.listen(app);
 app.listen(port);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 
-var socket = io.listen(app);
-
 socket.sockets.on('connection', function(client){
   var connected = true;
+  
   client.on('message', function(m){
     sys.log('Message received: '+m);
   });
+
   client.on('disconnect', function(){
     connected = false;
   });
+  
+  var currencies = {
+	"GBP" : {"ISO" : "GBP", "currency" : "£", "image": "gb.png", "pillars": {
+		"O/N" : "0.995", 
+		"1M" : "1.0",
+		"2M" : "1.2",
+		"3M" : "1.4"
+		}},
+	"INR" : {"ISO" : "INR", "currency" : "र", "image": "in.png", "pillars" : {
+		"O/N" : "0.993",
+		"S/N" : "0.997",
+		"T/N" : "0.999", 
+		"1M" : "1.0",
+		"2M" : "1.2",
+		"3M" : "1.4"
+		}},
+	"CHF" : {"ISO" : "CHF", "currency" : "F", "image": "ch.png", "pillars" : {
+		"O/N" : "0.999",
+		"S/N" : "1.002",
+		"T/N" : "1.010", 
+		"1M" : "1.020",
+		"2M" : "1.080",
+		"3M" : "1.1",
+		"1Y" : "1.111"
+		}},
+	"JPY" : {"ISO" : "JPY", "currency" : "¥", "image": "jp.png", "pillars" : {
+		"O/N" : "120",
+		"S/N" : "121",
+		"T/N" : "120.099", 
+		"1M" : "118",
+		"2M" : "117",
+		"3M" : "119",
+		"1Y" : "130"
+		}}	
+	};
+  
+  client.emit('initialData', {rates : currencies}); 
 
-  var tick = function(){
+  /*var tick = function(){
     if (!connected) {
       return;
     }
@@ -55,6 +94,6 @@ socket.sockets.on('connection', function(client){
     setTimeout(tick, 1000);
   };
   
-  tick();
+  tick();*/
 });
 

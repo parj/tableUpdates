@@ -1,10 +1,10 @@
 !!!5
-html(lang="en")
+html(lang="en", encoding="UTF-8")
 	head
-		script(src='/jquery-1.4.1.min.js',type='text/javascript')
+		script(src='/jquery-1.7.1.min.js',type='text/javascript')
 		script(src='/jquery.tmpl.1.1.1.js',type='text/javascript')
-		//script(src='/socket.io/socket.io.js',type='text/javascript')
-		//script(src='/main.js',type='text/javascript')
+		script(src='/socket.io/socket.io.js',type='text/javascript')
+		script(src='/main.js',type='text/javascript')
 		
 		script(src='/buildTable.js', type='text/javascript')
 			
@@ -16,8 +16,4 @@ html(lang="en")
 		div#listOfLinks Loading.. Please Wait
 		hr
 		div(id="divCurrency")
-		
-		script(type="text/javascript")
-			buildLinks();
-			buildTable();
 		

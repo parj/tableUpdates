@@ -8,3 +8,7 @@ socket.on('message', function(m){
 socket.on('disconnect', function(){
   $('#status').text('Disconnected');
 });
+socket.on('initialData', function(data) {
+		setData(data.rates);
+		buildAll();
+	});
