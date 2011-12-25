@@ -1,5 +1,6 @@
 var varSelectedCurrency = "GBP";
 var LINK_COUNTRIES = "images/flags/";
+var LINK_STATUS = "images/status/";
 var templateLinks = '<img src="' + LINK_COUNTRIES + '#{image}" onclick="setCurrency(\'#{ISO}\')"> | </img> ';
 var templateImageCurrency = '<img src="' + LINK_COUNTRIES + '#{image}")"></img> ';
 var currencies;
@@ -23,10 +24,12 @@ function buildLinks() {
 }
 
 function buildTable() {
-	$('#divCurrency').html("Loading... Please Wait..");
+	//$('#divCurrency').html("Loading... Please Wait..");
 
-	var table = '<table border="1" id="tblCurrency">';
-	table += '<tr><th>' + $.tmpl(templateImageCurrency, currencies[varSelectedCurrency]) + ' - ' + currencies[varSelectedCurrency].currency + '</th><th>Rate</th></tr>';
+	var table = '<table id="tblCurrency">';
+	//table += '<tr><th>' + 
+	//			$.tmpl(templateImageCurrency, currencies[varSelectedCurrency]) + ' - ' + currencies[varSelectedCurrency].currency + 
+	//			'</th><th>Rate</th></tr>';
 
 	$.each(currencies[varSelectedCurrency].pillars, function(key, value) {
 		table += '<tr><td>' + key + '</td>' + '<td>' + value + '</td>' + '</tr>';
@@ -34,8 +37,7 @@ function buildTable() {
 
 	table += '</table>';
 
-	$('#divCurrency').html(table);	
-	buildLinks(currencies);
+	$('#divCurrency').html(table);
 }
 
 function setCurrency(strCurrency) {

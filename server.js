@@ -77,7 +77,49 @@ socket.sockets.on('connection', function(client){
 		"1Y" : "130"
 		}}	
 	};
+	
+	var randomChange = function() {
+		var currencies = {
+	"GBP" : {"ISO" : "GBP", "currency" : "£", "image": "gb.png", "pillars": {
+		"O/N" : Math.random(), 
+		"1M" : Math.floor(Math.random() * 2) + 1,
+		"2M" : Math.floor(Math.random() * 2) + 1,
+		"3M" : Math.floor(Math.random() * 2) + 1
+		}},
+	"INR" : {"ISO" : "INR", "currency" : "&#x20b9;", "image": "in.png", "pillars" : {
+		"O/N" : Math.floor(Math.random() * 4) + 1,
+		"S/N" : Math.floor(Math.random() * 4) + 1,
+		"T/N" : Math.floor(Math.random() * 4) + 1, 
+		"1M" : Math.floor(Math.random() * 4) + 1,
+		"2M" : Math.floor(Math.random() * 4) + 1,
+		"3M" : Math.floor(Math.random() * 4) + 1
+		}},
+	"CHF" : {"ISO" : "CHF", "currency" : "₣", "image": "ch.png", "pillars" : {
+		"O/N" : Math.random(),
+		"S/N" : Math.random(),
+		"T/N" : Math.random(), 
+		"1M" : Math.random(),
+		"2M" : Math.random(),
+		"3M" : Math.random(),
+		"1Y" : Math.random()
+		}},
+	"JPY" : {"ISO" : "JPY", "currency" : "¥", "image": "jp.png", "pillars" : {
+		"O/N" : Math.floor(Math.random() * 120) + 70,
+		"S/N" : Math.floor(Math.random() * 120) + 70,
+		"T/N" : Math.floor(Math.random() * 120) + 70, 
+		"1M" : Math.floor(Math.random() * 120) + 70,
+		"2M" : Math.floor(Math.random() * 120) + 70,
+		"3M" : Math.floor(Math.random() * 120) + 70,
+		"1Y" : Math.floor(Math.random() * 120) + 70
+		}}	
+	};
+		client.emit('update', {rates : currencies});
+		//client.broadcast.json.send({rates : currencies});  
+		setTimeout(randomChange, 1000);
+	}
   
-  client.emit('initialData', {rates : currencies}); 
+	client.emit('initialData', {rates : currencies});
+	//client.broadcast.json.send({rates : currencies});  
+	randomChange();
 });
 
