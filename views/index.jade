@@ -9,8 +9,10 @@ html(lang="en", encoding="UTF-8")
 			
 	body
 		h1 WebSocket Test
-		p#status Connection ...status Waiting
-		img#imgStatus(src="/images/status/disconnected.png", onclick="connectSocket()")
+		
+		div#pnlStatus
+			img#imgStatus(src="/images/status/disconnected.png", onclick="connectSocket()")
+			p#status Connection ...status Waiting
 		pre#message
 		div#listOfLinks Loading.. Please Wait
 		hr
@@ -23,6 +25,6 @@ html(lang="en", encoding="UTF-8")
 			text Flag icons courtsey 
 				a(href='http://www.famfamfam.com/lab/icons/flags/') Fam Fam Fam.
 				text Status icons courtsey 
-					a(href='http://www.smashingmagazine.com/2009/05/20/flavour-extended-the-ultimate-icon-set-for-web-designers/') Smashing Magazine.
+					a(href='http://www.jankoatwarpspeed.com/post/2009/09/17/sixpack-status-icons.aspx') JANKO at WARP SPEED.
 			p &copy; Parjanya Mudunuri, 2011. All rights reserved. This work is released under 
 				a(href='http://www.opensource.org/licenses/mit-license.php') MIT License (MIT).
