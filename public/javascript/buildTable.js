@@ -1,8 +1,19 @@
+//Default selected currency
 var varSelectedCurrency = "GBP";
+
+//Static variables
 var LINK_COUNTRIES = "images/flags/";
 var LINK_STATUS = "images/status/";
+
+//Templates
 var templateLinks = '<img src="' + LINK_COUNTRIES + '#{image}" onclick="setCurrency(\'#{ISO}\')"> | </img> ';
 var templateImageCurrency = '<img src="' + LINK_COUNTRIES + '#{image}")"></img> ';
+var templateTableTR = '<tr onMouseOver="this.bgColor=\'yellow\';" onMouseOut="this.bgColor=\'white\';">';
+
+var templateTableHeader = '<tr><th>#{header1}</th><th>#{header2}</th></tr>';
+var templateTableRow = '<tr onMouseOver="this.bgColor=\'yellow\';" onMouseOut="this.bgColor=\'white\';"><td>#{key}</td><td>#{value}</td></tr>';
+
+//Global variable to be used
 var currencies;
 
 function setData(data) {
@@ -10,31 +21,38 @@ function setData(data) {
 }
 
 function buildAll() {
-	buildLinks();
+	buildCurrencySelection();
 	buildTable();
 }
 
-function buildLinks() {
+function buildCurrencySelection() {
 	var links = "";
 	$.each(currencies, function() {
 		links += $.tmpl(templateLinks, this);
 	});
 	
-	$('#listOfLinks').html(links);
+	$('#pnlLinks').html(links);
 }
 
 function buildTable() {
-
-	var table = '<table id="tblCurrency">';
-	var imgSelectedCurrency = 'Selected - ' + $.tmpl(templateImageCurrency, currencies[varSelectedCurrency]) + ' - ' + currencies[varSelectedCurrency].currency;
+	// --Set the selected currency	
+	var imgSelectedCurrency = 'Selected - ' + 
+										$.tmpl(templateImageCurrency, currencies[varSelectedCurrency]) + ' - ' + 
+										currencies[varSelectedCurrency].currency;
+										
 	$('#pnlRateSelectedCurrency').html(imgSelectedCurrency);
 	
-	table += '<tr><th>Pillar</th><th>Rate</th></tr>'; 
+	var table = '<table id="tblRate">';
+	
+	//Render the headers
+	table += $.tmpl(templateTableHeader, {header1 : 'Pillar', header2 : 'Rate'});
 
+	//Render the body of the table
 	$.each(currencies[varSelectedCurrency].pillars, function(key, value) {
-		table += '<tr onMouseOver="this.bgColor=\'yellow\';" onMouseOut="this.bgColor=\'white\';"><td>' + key + '</td>' + '<td>' + value + '</td>' + '</tr>';
+		table += $.tmpl(templateTableRow, {'key' : key, 'value' : value});
 	});
 
+	//Close the tage
 	table += '</table>';
 
 	$('#pnlRateTable').html(table);
