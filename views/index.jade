@@ -8,14 +8,19 @@ html(lang="en", encoding="UTF-8")
 		script(src='/javascript/connection.js',type='text/javascript')
 			
 	body
-		h1 WebSocket Test
+		h1 Realtime Demo
+			span To showcase realtime rates being sent
 		
-		div#pnlStatus
-			img#imgStatus(src="/images/status/disconnected.png", onclick="connectSocket()")
-			p#status Connection ...status Waiting
-		pre#message
-		div#pnlLinks Loading.. Please Wait
-		hr
+		div#pnlLinks Loading.. Please Wait		
+
 		div#pnlRateSelectedCurrency
+		
+		div(class="body")
+			div#pnlStatus
+				img#imgStatus(src="/images/status/disconnected.png", onclick="connectSocket()")
+				//p#status() Connection ...status Waiting
+			pre#message
+
 		div#pnlRateTable
 		
+		div#pnlRateSelectedCurrencySymbol

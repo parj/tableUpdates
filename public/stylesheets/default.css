@@ -1,0 +1,130 @@
+a {
+  color: darkblue;
+  text-decoration: none;
+}
+
+body {
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background: rgb(229,222,175);
+	overflow-x: hidden;
+}
+
+.body {
+  font-family: Verdana;
+  -moz-column-count: 2;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 1em;
+  column-count: 2;
+  column-gap: 1em;
+  line-height: 1.5em;
+  color: rgb(69,54,37);
+}
+
+h1{
+  font-size: 2.5em;
+  font-family: Georgia;
+  letter-spacing: 0.1em;
+  color: rgb(142,11,0);
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
+}
+
+h1 span{
+  display: block;
+  margin-top: 0.5em;
+  font-family: Verdana;
+  font-size: 0.6em;
+  font-weight: normal;
+  letter-spacing: 0em;
+  text-shadow: none;
+}
+
+hr {
+	border-color: grey;
+	border-style: dashed;
+	border-width: 1px;
+}
+
+table {
+	border: 1px solid rgba(69,54,37,0.2);
+	font-variant: small-caps;
+	text-align: left;
+}
+
+td {
+	width: 100px;
+}
+
+#pnlCopyright {
+	font-family: Georgia;	
+	border-top: 1px solid rgba(69,54,37,0.2);	
+	left: 0px;
+	bottom: 0px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	position: absolute;
+	color: rgba(69,54,37,0.6);
+	font-size: 0.75em;
+ 	font-style: italic;
+ 	letter-spacing: 0.25em; 	
+ 	display: block;
+ 	padding-top: 0.5em;
+ 	margin-top: 2em;
+}
+
+#pnlLinks {	
+  	border-bottom: 1px solid rgba(69,54,37,0.2);
+}
+
+#pnlRateSelectedCurrency span{
+  text-transform: capitalize;
+  font-style: normal;
+  color: rgba(69,54,37,0.8);
+}
+
+#pnlRateSelectedCurrency{
+  font-family: Georgia;
+  color: rgb(142,11,0);
+  font-size: 0.85em;
+  letter-spacing: 0.25em;
+  padding-bottom: 0.5em;
+  padding-top: 1em;
+}
+
+#pnlRateSelectedCurrencySymbol{
+	font-family: Georgia;
+	font-size: 20em;
+	letter-spacing: 0.25em;
+	padding-bottom: 0.1em;
+	padding-top: 1em;
+	
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+   color: transparent;
+   text-shadow: rgba(240,240,240,0.3) 0px 3px 3px;
+  	position: absolute;
+  	right: 0px;
+  	bottom: 5px;  
+	-moz-transform: rotate(-7deg);
+}
+
+#pnlStatus {
+	right: 0px;
+	top: 0px;
+	padding-top: 5px;
+	position: absolute;
+	font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#imgStatus {
+	width: 20px;
+	height: 20px;
+}
+
+#imgLinks {	
+	border-right: 1px solid rgb(142,11,0);
+	padding-right: 5px; 
+}
+
+
