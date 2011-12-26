@@ -27,11 +27,9 @@ function buildTable() {
 
 	var table = '<table id="tblCurrency">';
 	var imgSelectedCurrency = 'Selected - ' + $.tmpl(templateImageCurrency, currencies[varSelectedCurrency]) + ' - ' + currencies[varSelectedCurrency].currency;
-	$('#imgCurrency').html(imgSelectedCurrency);
+	$('#pnlRateSelectedCurrency').html(imgSelectedCurrency);
 	
 	table += '<tr><th>Pillar</th><th>Rate</th></tr>'; 
-	//			$.tmpl(templateImageCurrency, currencies[varSelectedCurrency]) + ' - ' + currencies[varSelectedCurrency].currency + 
-	//			'</th><th>Rate</th></tr>';
 
 	$.each(currencies[varSelectedCurrency].pillars, function(key, value) {
 		table += '<tr onMouseOver="this.bgColor=\'yellow\';" onMouseOut="this.bgColor=\'white\';"><td>' + key + '</td>' + '<td>' + value + '</td>' + '</tr>';
@@ -39,7 +37,7 @@ function buildTable() {
 
 	table += '</table>';
 
-	$('#divCurrency').html(table);
+	$('#pnlRateTable').html(table);
 }
 
 function setCurrency(strCurrency) {
