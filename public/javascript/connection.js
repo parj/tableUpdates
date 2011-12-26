@@ -4,7 +4,6 @@ var socketRateUpdate = io.connect('http://localhost/rates/update');	//To get upd
 socketInitialData.on('initialData', function(data) {
 	setData(data.rates);
 	buildAll();
-	socket.disconnect(); //Don't require initialData anymore
 });
 
 function connectSocket() {

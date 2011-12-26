@@ -24,15 +24,17 @@ function buildLinks() {
 }
 
 function buildTable() {
-	//$('#divCurrency').html("Loading... Please Wait..");
 
 	var table = '<table id="tblCurrency">';
-	//table += '<tr><th>' + 
+	var imgSelectedCurrency = 'Selected - ' + $.tmpl(templateImageCurrency, currencies[varSelectedCurrency]) + ' - ' + currencies[varSelectedCurrency].currency;
+	$('#imgCurrency').html(imgSelectedCurrency);
+	
+	table += '<tr><th>Pillar</th><th>Rate</th></tr>'; 
 	//			$.tmpl(templateImageCurrency, currencies[varSelectedCurrency]) + ' - ' + currencies[varSelectedCurrency].currency + 
 	//			'</th><th>Rate</th></tr>';
 
 	$.each(currencies[varSelectedCurrency].pillars, function(key, value) {
-		table += '<tr><td>' + key + '</td>' + '<td>' + value + '</td>' + '</tr>';
+		table += '<tr onMouseOver="this.bgColor=\'yellow\';" onMouseOut="this.bgColor=\'white\';"><td>' + key + '</td>' + '<td>' + value + '</td>' + '</tr>';
 	});
 
 	table += '</table>';
