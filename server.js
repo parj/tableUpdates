@@ -29,7 +29,7 @@ app.configure('production', function(){
 app.get('/', routes.index);
 
 var socket = io.listen(app);
-app.listen(port);
+app.listen(process.env.PORT || port);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 
 socket.sockets.on('connection', function(client){
