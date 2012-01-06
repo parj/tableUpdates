@@ -1,0 +1,14 @@
+{
+  "name": "glucose",
+  "version": "0.0.1",
+  "description": "An implementation of management of servers (similar to Chef or Puppet) in node.js",
+  "author": "Parjanya Mudunuri <parjanya@gmail.com>",
+  "dependencies": {
+  	 "express": ">=2.5.2",
+    "socket.io": ">= 0.8.7",
+    "logmagic": ">= 0.1.4",
+    "jade": ">=0.19.0",
+    "routes": ">=0.1.0"
+  },
+  "engine": "node 0.6.6"
+}

@@ -1,0 +1,26 @@
+!!!5
+html(lang="en", encoding="UTF-8")
+	head
+		script(src='/javascript/jquery-1.7.1.min.js',type='text/javascript')
+		script(src='/javascript/jquery.tmpl.1.1.1.js',type='text/javascript')
+		script(src='/socket.io/socket.io.js',type='text/javascript')		
+		script(src='/javascript/buildTable.js', type='text/javascript')
+		script(src='/javascript/connection.js',type='text/javascript')
+			
+	body
+		h1 Realtime Demo
+			span To showcase realtime rates being sent
+		
+		div#pnlLinks Loading.. Please Wait		
+
+		div#pnlRateSelectedCurrency
+		
+		div(class="body")
+			div#pnlStatus
+				img#imgStatus(src="/images/status/disconnected.png", onclick="connectSocket()")
+				//p#status() Connection ...status Waiting
+			pre#message
+
+		div#pnlRateTable
+		
+		div#pnlRateSelectedCurrencySymbol
