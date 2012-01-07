@@ -1,37 +1,9 @@
 a {
   color: darkblue;
   text-decoration: none;
-}
-
-
-h1 span{
-  display: block;
-  margin-top: 0.5em;
-  font-family: Verdana;
-  font-size: 0.6em;
-  font-weight: normal;
-  letter-spacing: 0em;
-  text-shadow: none;
-}
-
-hr {
-	border-color: grey;
-	border-style: dashed;
-	border-width: 1px;
-}
-
-table {
-	border: 1px solid rgba(69,54,37,0.2);
-	font-variant: small-caps;
-	text-align: left;
-}
-
-td {
-	width: 100px;
-}
+}	
 
 #pnlCopyright {
-	font-family: Georgia;	
 	left: 1em;
 	bottom: 1em;
 	position: absolute;
@@ -41,30 +13,13 @@ td {
 }
 
 #pnlLinks {	
+	padding-top: 1em;
   	border-bottom: 1px solid rgba(69,54,37,0.2);
 }
 
-#pnlRateSelectedCurrency span{
-  text-transform: capitalize;
-  font-style: normal;
-  color: black;
-}
-
-#pnlRateSelectedCurrency{
-  font-family: Georgia;
-  color: black;
-  font-size: 0.85em;
-  letter-spacing: 0.25em;
-  padding-bottom: 0.5em;
-  padding-top: 1em;
-}
-
-#pnlStatus {
-	right: 0px;
-	top: 0px;
-	padding-top: 5px;
-	position: absolute;
-	font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+#pnlRateSelectedCurrency {
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 #imgLinks {	
