@@ -7,6 +7,8 @@ socketInitialData.on('initialData', function(data) {
 });
 
 function connectSocket() {
+	$('#txtConnectionStatus').text('ATTEMPTING');
+	document.getElementById('txtConnectionStatus').setAttribute("class", "label warning");
 	socketRateUpdate.socket.reconnect();
 }
 
@@ -15,9 +17,9 @@ function disconnectSocket() {
 }
 
 socketRateUpdate.on('connect', function(){
-	$('#status').text('Connected');
-	document.getElementById('imgStatus').src = LINK_STATUS + 'ok.png';
-	document.getElementById('imgStatus').onclick = disconnectSocket;
+	$('#txtConnectionStatus').text('CONNECTED');
+	document.getElementById('txtConnectionStatus').setAttribute("class", "label success");
+	document.getElementById('txtConnectionStatus').onclick = disconnectSocket;
 });
 
 socketRateUpdate.on('message', function(data){
@@ -26,9 +28,9 @@ socketRateUpdate.on('message', function(data){
 });
 
 socketRateUpdate.on('disconnect', function(){
-	$('#status').text('Disconnected');
-	document.getElementById('imgStatus').src = LINK_STATUS + 'disconnected.png';
-	document.getElementById('imgStatus').onclick = connectSocket;
+	$('#txtConnectionStatus').text('DISCONNECTED.. Click to retry');
+	document.getElementById('txtConnectionStatus').setAttribute("class", "label important");
+	document.getElementById('txtConnectionStatus').onclick = connectSocket;
 });
 
 socketRateUpdate.on('message', function(data){

@@ -11,16 +11,12 @@ html(lang="en", encoding="UTF-8")
 		h1 Realtime Demo
 			span To showcase realtime rates being sent
 		
+		span#txtConnectionStatus(class="label important", onclick="connectSocket()") DISCONNECTED
+
 		div#pnlLinks Loading.. Please Wait		
 
 		div#pnlRateSelectedCurrency
-		
-		div(class="body")
-			div#pnlStatus
-				img#imgStatus(src="/images/status/disconnected.png", onclick="connectSocket()")
-				//p#status() Connection ...status Waiting
-			pre#message
+
+		div#pnlStatus
 
 		div#pnlRateTable
-		
-		div#pnlRateSelectedCurrencySymbol
