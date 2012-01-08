@@ -4,7 +4,7 @@ var http    = require('http'),
     express = require('express'),
     routes  = require('./routes');
 
-var port = 8111;
+var port = 8080;
 
 var app = module.exports = express.createServer();
 

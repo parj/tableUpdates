@@ -1,5 +1,7 @@
-var socketInitialData = io.connect();	//To get initial data
-var socketRateUpdate = io.connect('http://localhost/rates/update');	//To get updates on rates
+var hostname = 'http://' + document.location.hostname;
+var port = 8080;
+var socketInitialData = io.connect(hostname, {port: port});	//To get initial data
+var socketRateUpdate = io.connect(hostname + '/rates/update', {port : port});	//To get updates on rates
 
 socketInitialData.on('initialData', function(data) {
 	setData(data.rates);
