@@ -8,10 +8,15 @@ html(lang="en", encoding="UTF-8")
 		script(src='/javascript/connection.js',type='text/javascript')
 			
 	body
-		h1 Realtime Demo
-		h4 To showcase realtime rates being sent
+		div(class="span30")
+			div(class="row")
+				div(class="span4")
+					h1 Realtime Demo
+				div(class="span15")
+					h4 To showcase realtime rates being sent
+				
 		
-		span#txtConnectionStatus(class="label important", onclick="connectSocket()") DISCONNECTED
+		div#txtConnectionStatus(class="label important", onclick="connectSocket()") DISCONNECTED
 
 		div(class="row")
 			div(class="span116")
