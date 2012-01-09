@@ -10,8 +10,10 @@ var templateLinks = '<img id="imgLinks" src="' + LINK_COUNTRIES + '#{image}" onc
 var templateImageCurrency = '<img src="' + LINK_COUNTRIES + '#{image}")"></img> ';
 var templateTableTR = '<tr>';
 
-var templateTableHeader = '<tr><th>#{header1}</th><th>#{header2}</th></tr>';
-var templateTableRow = '<tr><td>#{key}</td><td>#{value}</td></tr>';
+//Rates Table
+var templateRateTable = '<table id="tblRate" class="zebra-striped">';
+var templateRateTableHeader = '<tr><th>#{header1}</th><th>#{header2}</th></tr>';
+var templateRateTableRow = '<tr><td>#{key}</td><td>#{value}</td></tr>';
 
 //Global variable to be used
 var currencies;
@@ -22,6 +24,7 @@ function setData(data) {
 
 function buildAll() {
 	buildCurrencySelection();
+	buildSelectedCurrency();
 	buildTable();
 }
 
@@ -34,7 +37,7 @@ function buildCurrencySelection() {
 	$('#pnlLinks').html(links);
 }
 
-function buildTable() {
+function buildSelectedCurrency() {
 	// --Set the selected currency	
 	var imgSelectedCurrency = 'Selected - ' + 
 										$.tmpl(templateImageCurrency, currencies[varSelectedCurrency]) + ' - ' + 
@@ -42,24 +45,30 @@ function buildTable() {
 										
 	$('#pnlRateSelectedCurrency').html(imgSelectedCurrency);
 	$('#pnlRateSelectedCurrencySymbol').html(currencies[varSelectedCurrency].currency);
-	
-	var table = '<table id="tblRate" class="zebra-striped">';
+										
+}
+
+function buildTable() {
+	//Create a temporary table
+	var rateTable = templateRateTable;
 	
 	//Render the headers
-	table += $.tmpl(templateTableHeader, {header1 : 'Pillar', header2 : 'Rate'});
+	rateTable += $.tmpl(templateRateTableHeader, {header1 : 'Pillar', header2 : 'Rate'});
 
 	//Render the body of the table
 	$.each(currencies[varSelectedCurrency].pillars, function(key, value) {
-		table += $.tmpl(templateTableRow, {'key' : key, 'value' : value});
+		rateTable += $.tmpl(templateRateTableRow, {'key' : key, 'value' : value});
 	});
 
-	//Close the tage
-	table += '</table>';
+	//Close the tag
+	rateTable += '</table>';
 
-	$('#pnlRateTable').html(table);
+	//Set the table
+	$('#pnlRateTable').html(rateTable);
 }
 
 function setCurrency(strCurrency) {
 	varSelectedCurrency = strCurrency;
+	buildSelectedCurrency();
 	buildTable();
 }
